@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, Router } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import { auth } from '../firebase';
 import 'react-toastify/dist/ReactToastify.css';
@@ -10,7 +10,7 @@ export const Signup = () => {
     const [password, setPassword] = useState('');
     const [confPassword, setConfPassword] = useState('');
     const signUp = () => {
-        if (password != confPassword) {
+        if (password !== confPassword) {
             toast.error("Password does not match !")
 
         }

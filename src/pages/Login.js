@@ -1,14 +1,27 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { auth } from '../firebase';
 import { toast, ToastContainer } from 'react-toastify';
 import { useHistory, Link } from 'react-router-dom';
-import Reviews from './Reviews';
+
+
+
+
+
 
 
 export const Login = () => {
     const history = useHistory();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    auth.onAuthStateChanged(user => {
+        if (user) {
+            console.log('User logged in ', user);
+        }
+        else {
+            console.log('User logged out !')
+        }
+    })
 
     const userLogin = () => {
         auth.signInWithEmailAndPassword(email, password).then(res => {

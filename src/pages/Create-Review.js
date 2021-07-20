@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react'
-import firebase from 'firebase'
+import React, { useState } from 'react'
 import { auth, db } from '../firebase'
 import { Link, useHistory } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 
-import Reviews, { Answers } from './Reviews';
+
 
 export const CreateReview = () => {
     const history = useHistory();
@@ -46,7 +45,7 @@ export const CreateReview = () => {
     }
     return (
         <div className="bg-dark" style={{ height: "100vh" }} >
-            <nav class="navbar navbar-light bg-light mb-5">
+            <nav className="navbar navbar-light bg-light mb-5">
                 <span>
                     Review System
                 </span>

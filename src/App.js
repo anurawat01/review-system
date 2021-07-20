@@ -1,6 +1,6 @@
 import { Login } from "./pages/Login";
 import { Signup } from "./pages/Signup";
-import { BrowserRouter as Router, Link, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import React from "react";
 import { CreateReview } from "./pages/Create-Review";
 import Reviews from "./pages/Reviews";

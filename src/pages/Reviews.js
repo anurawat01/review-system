@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import { auth, db } from "../firebase";
 
-import { CreateReview } from './Create-Review';
+
 
 
 const Reviews = () => {
@@ -26,7 +26,7 @@ const Reviews = () => {
     }
     return (
         <div className="bg-dark" style={{ height: "100vh" }} >
-            <nav class="navbar navbar-light bg-light mb-5">
+            <nav className="navbar navbar-light bg-light mb-5">
                 <span>
                     Review System
                 </span>
@@ -39,23 +39,31 @@ const Reviews = () => {
                 <h3 className="card-heading text-center shadow" >Reviews List</h3>
 
                 <table className="table table-striped">
-                    <tr className="bg-dark text-white">
-                        <td>Title</td>
-                        <td>Description</td>
-                        <td>Details</td>
-                    </tr>
-                    {posts.length > 0 ? (
-                        posts.map((post) =>
-                        (
+                    <thead className="bg-dark text-white">
+                        <tr>
+                            <td>Title</td>
+                            <td>Description</td>
+                            <td>Details</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {posts.length > 0 ? (
+                            posts.map((post) =>
+                            (
+                                <tr>
+                                    <td>{post.title}</td>
+                                    <td>{post.details}</td>
+                                    <td>{post.description}</td>
+                                </tr>
+                            ))
+                        ) : (
                             <tr>
-                                <td>{post.title}</td>
-                                <td>{post.details}</td>
-                                <td>{post.description}</td>
+                                <td>
+                                    <span className="text-center progress-bar bg-info progress-bar-striped progress-bar-animated m-auto" aria-valuemin="0" aria-valuemax="100">Loading... :(</span>
+                                </td>
                             </tr>
-                        ))
-                    ) : (
-                        <span className="text-center progress-bar bg-info progress-bar-striped progress-bar-animated m-auto" aria-valuemin="0" aria-valuemax="100">Loading... :(</span>
-                    )}
+                        )}
+                    </tbody>
                 </table>
             </div>
         </div>
