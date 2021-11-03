@@ -28,7 +28,7 @@ export const CreateReview = () => {
                     //history.push('./Reviews');
                 })
                 .catch(function (error) {
-                    toast.error("Error in review adding! : ", error);
+                    toast.error("Error in review adding!! : ", error);
                 });
         }
 
